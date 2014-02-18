@@ -3,8 +3,8 @@ zookeeper Cookbook
 
 Requirements
 ------------
-- Relies on the get_data* and normalization functions in hp_common_functions
 - hostsfile needed to modify /etc/hosts
+- When a cluster is defined the cookbook relies on the get_data* and normalization functions in hp_common_functions
 
 Attributes
 ----------
