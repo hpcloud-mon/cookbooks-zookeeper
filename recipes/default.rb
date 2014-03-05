@@ -91,7 +91,7 @@ directory node[:zookeeper][:log_dir] do
   action :create
   owner "zookeeper"
   group "zookeeper"
-  mode 0644
+  mode 0755
 end
 
 cookbook_file "#{conf_dir}/log4j.properties" do
