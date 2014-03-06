@@ -25,6 +25,11 @@ else
 end
 
 # Install the deb and setup the service
+# Zookeeper depends on java so will install it but the default is installing openjdk-6, this forces 7
+# though it would be better to do this in the package, this change is easier than building custom packages
+package 'openjdk-7-jre-headless' do
+  action :install
+end
 #   - the zookeeper user/group are created by the deb
 package 'zookeeper' do
   action :install
