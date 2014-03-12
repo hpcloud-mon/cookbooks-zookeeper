@@ -105,5 +105,5 @@ cookbook_file "#{conf_dir}/log4j.properties" do
   owner "root"
   group "root"
   mode 0644
-  notifies :restart, "service[zookeeper]"
+  notifies :restart, "service[zookeeper]", :immediately  # Zookeeper must be up before kafka
 end
