@@ -4,15 +4,7 @@
 if node[:zookeeper][:cluster] == 'localhost'
   servers = {}
 else
-  include_recipe 'hp_common_functions'
-  servers = normalize(get_data_bag_item('zookeeper', node[:zookeeper][:cluster], { :encrypted => false}), {
-    :servers => { :required => true, :typeof => Hash, :metadata => {
-      :* => { :typeof => Hash, :metadata => {
-        :ip => { :required => true, :typeof => String },
-        :id => { :required => true, :typeof => Integer },
-      } }
-    } }
-  })[:servers]
+  servers = data_bag_item('zookeeper', node[:zookeeper][:cluster])['servers']
   # Add servers to /etc/hosts file
   servers.each do |fqdn, info|
     ip = info['ip']
