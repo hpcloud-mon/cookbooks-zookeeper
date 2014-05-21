@@ -69,7 +69,7 @@ end
 if node[:zookeeper][:cluster] != 'localhost' 
   file "#{conf_dir}/myid" do
     action :create
-    content servers[node[:fqdn]][:id].to_s
+    content servers[node[:fqdn]]['id'].to_s
     notifies :restart, "service[zookeeper]"
   end
 end
